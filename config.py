@@ -1,0 +1,12 @@
+RPC = 'https://rpc.ankr.com/eth'
+TWO_CAPTCHA_API_KEY = ''
+
+SLEEP = [100, 900]
+AMOUNT_TO_DEPOSIT = 0.05
+
+ERR_ATTEMPTS = 1
+MAX_GAS_PRICE = 6.2
+ETH_GAS_MULT = 1.1
+MAX_TX_WAIT = 500
+
+
