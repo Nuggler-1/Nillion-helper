@@ -16,7 +16,7 @@ Clone/download the repository and install dependencies:
 
 ### Configuration
 
-Fill your `private_keys.txt`, `servers`, `proxies.txt` and `nillion_node_addresses.txt` in the `user_data` folder
+Fill your `private_keys.txt`, `servers`, `proxies.txt` and `nillion_node_addresses.txt` (after verifiers are set up) in the `user_data` folder
 
 **Don't forget to add your two-captcha api key to `config.py`**
 
@@ -51,7 +51,7 @@ Telegram channel: https://t.me/fttavksoft
 
 ### Конфигурация
 
-Заполни файлы `private_keys.txt`, `servers`,`proxies.txt` и `nillion_node_addresses.txt` в папке `user_data`
+Заполни файлы `private_keys.txt`, `servers`, `proxies.txt` и `nillion_node_addresses.txt` (после того как установил верифаеры на сервера) в папке `user_data`
 
 **Не забудь добавить API-ключ от two-captcha в `config.py`**
 
