@@ -16,9 +16,11 @@ Clone/download the repository and install dependencies:
 
 ### Configuration
 
-Fill your `private_keys.txt`, `proxies.txt` and `nillion_node_addresses.txt` in the `user_data` folder
+Fill your `private_keys.txt`, `servers`, `proxies.txt` and `nillion_node_addresses.txt` in the `user_data` folder
 
 **Don't forget to add your two-captcha api key to `config.py`**
+
+if you are willing to use the server module - check the commands in config to fit your OS. By default they are set to fit debian 10 (maybe suitable for ubuntu as well)
 
 ### Running
 
@@ -47,9 +49,11 @@ Telegram channel: https://t.me/fttavksoft
 
 ### Конфигурация
 
-Заполни файлы `private_keys.txt`, `proxies.txt` и `nillion_node_addresses.txt` в папке `user_data`
+Заполни файлы `private_keys.txt`, `servers`,`proxies.txt` и `nillion_node_addresses.txt` в папке `user_data`
 
 **Не забудь добавить API-ключ от two-captcha в `config.py`**
+
+Если собираешься работать с серверами - проверь что команды в конфиге подходят под твою ОС. По умолчанию они стоят под Дебиан 10 (возможно подойдут и под убунту)
 
 ### Запуск
 
