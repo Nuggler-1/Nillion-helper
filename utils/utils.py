@@ -18,33 +18,34 @@ def decimalToInt(price, decimal):
     return price/ int("".join((["1"]+ ["0"]*decimal)))
 
 
-def error_handler(error_msg):
+def error_handler(error_msg, retries = ERR_ATTEMPTS):
     def decorator(func):
         def wrapper(*args, **kwargs):
-            for i in range(0, ERR_ATTEMPTS):
+            for i in range(0, retries):
                 try: 
                     return func(*args, **kwargs)
                 except Exception as e:
                     logger.error(f"{error_msg}: {str(e)}")
                     logger.info(f'Retrying in 10 sec. Attempts left: {ERR_ATTEMPTS-i}')
                     time.sleep(10)
-                    if i == ERR_ATTEMPTS-1: 
-                        raise Exception(str(e))
+                    if i == retries-1: 
+                        return 0
         return wrapper
     return decorator
 
-def async_error_handler(error_msg):
+def async_error_handler(error_msg, retries=ERR_ATTEMPTS):
     def decorator(func):
         async def wrapper(*args, **kwargs):
-            for i in range(0, ERR_ATTEMPTS):
-                try: 
+            for i in range(0, retries):
+                try:
                     return await func(*args, **kwargs)
                 except Exception as e:
                     logger.error(f"{error_msg}: {str(e)}")
-                    logger.info(f'Retrying in 10 sec. Attempts left: {ERR_ATTEMPTS-i}')
+                    if i == retries - 1:
+                        return 0
+                    logger.info(f"Retrying in 10 sec. Attempts left: {retries-i-1}")
                     await asyncio.sleep(10)
-                    if i == ERR_ATTEMPTS-1: 
-                        raise Exception(str(e))
+                    
         return wrapper
     return decorator
 

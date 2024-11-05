@@ -1,10 +1,13 @@
 from nillion.faucet import Faucet
 from nillion.deposit import Deposit
+from nillion.server import ServerManager
+from utils.constants import logo
+
 import questionary
 import asyncio
 import sys 
 from loguru import logger
-from utils.constants import logo
+
 
 logger.remove()
 logger.add(
@@ -21,6 +24,7 @@ def main():
                     choices=[
                         "Stake to nillion nodes",
                         "Fill nodes with faucet", 
+                        "Manage servers",
                         "Exit"
                     ]
                 ).ask()
@@ -34,6 +38,10 @@ def main():
         case "Fill nodes with faucet": 
             faucet = Faucet()
             asyncio.run(faucet.run())
+            
+        case "Manage servers": 
+            manager = ServerManager()
+            manager.run()
             
         case "Exit": 
             sys.exit()

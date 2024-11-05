@@ -19,7 +19,8 @@ USER_DATA = 'user_data/'
 NILLION_ADDRESSES = USER_DATA + 'nillion_node_addresses.txt'
 PRIVATE_KEYS = USER_DATA + 'private_keys.txt'
 PROXIES = USER_DATA + "proxies.txt"
-
+NODES_DATA = USER_DATA + "server_setup_results.txt"
+SERVERS = USER_DATA + 'servers.txt'
 logo = r"""
 _______ _______ _______ _______ _    _ _     _     
 |______    |       |    |_____|  \  /  |____/      
