@@ -1,0 +1,2 @@
+results will be saved in format
+ip-address;nillion-address;nillion-pubkey;nillion-private-key
