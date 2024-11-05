@@ -22,6 +22,8 @@ Fill your `private_keys.txt`, `servers`, `proxies.txt` and `nillion_node_address
 
 if you are willing to use the server module - check the commands in config to fit your OS. By default they are set to fit debian 10 (maybe suitable for ubuntu as well)
 
+After verifier setup is finished the data is saved to `server_setup_results.txt`
+
 ### Running
 
 `python main.py`
@@ -54,6 +56,8 @@ Telegram channel: https://t.me/fttavksoft
 **Не забудь добавить API-ключ от two-captcha в `config.py`**
 
 Если собираешься работать с серверами - проверь что команды в конфиге подходят под твою ОС. По умолчанию они стоят под Дебиан 10 (возможно подойдут и под убунту)
+
+После установки верифаеров на сервера все данные сохранятся в `server_setup_results.txt`
 
 ### Запуск
 
