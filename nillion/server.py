@@ -93,7 +93,7 @@ class Server:
         logger.info(f'Checking container state on {self.hostname}')
     
         self.client.connect(**self.connection_data)
-        command = f'docker ps --format "{{.Names}}" --filter "name=nillion' 
+        command = f'docker ps --format "{{.Names}}" --filter "name=nillion"' 
         stdin, stdout, stderr = self.client.exec_command(command)
         containers_output = stdout.read().decode('utf-8').strip()
 
@@ -103,7 +103,7 @@ class Server:
             logger.info(f"Container Name: nillion last logs: ")
 
             # Get the last N lines of logs for each container
-            stdin, stdout, stderr = self.client.exec_command(f'docker logs --tail 100 nillion')
+            stdin, stdout, stderr = self.client.exec_command(f'docker logs --tail 100 nillion-new')
             stdout.channel.recv_exit_status()
             logs = stdout.read().decode()
             print(f"{logs}")
@@ -118,9 +118,15 @@ class Server:
                 return 1
 
             else:
-                logger.warning(f'{self.hostname}: Synced message not found. Check logs the container may be down')
-                self.client.close()
-                return 0
+                match =re.findall(r"\b" + re.escape('Starting 10 minute warmup period') + r"\b", logs)
+
+                if match: 
+                    logger.debug(f'{self.hostname}: Nillion is in warmup period, check later')
+                    return 1
+                else:
+                    logger.warning(f'{self.hostname}: Synced message not found. Check logs the container may be down')
+                    self.client.close()
+                    return 0
             
         else:
             logger.warning("No running containers found.")
