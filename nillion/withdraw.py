@@ -26,7 +26,7 @@ class Withdraw():
 
         wait_for_gas(self.web3)
 
-        sent_tx = build_and_send_tx(self.web3, account, tx, value=Web3.to_wei(AMOUNT_TO_DEPOSIT, 'ether'))
+        sent_tx = build_and_send_tx(self.web3, account, tx)
 
     def run(self): 
 
