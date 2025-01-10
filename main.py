@@ -1,6 +1,7 @@
 from nillion.faucet import Faucet
 from nillion.deposit import Deposit
 from nillion.server import ServerManager
+from nillion.withdraw import Withdraw
 from utils.constants import logo
 
 import questionary
@@ -22,6 +23,7 @@ def main():
     choice = questionary.select(
                     "Select work mode:",
                     choices=[
+                        "Unstake from nillion nodes",
                         "Stake to nillion nodes",
                         "Fill nodes with faucet", 
                         "Manage servers",
@@ -34,6 +36,10 @@ def main():
         case "Stake to nillion nodes":
             deposit = Deposit()
             deposit.run()
+
+        case "Unstake from nillion nodes": 
+            withdraw = Withdraw()
+            withdraw.run()
 
         case "Fill nodes with faucet": 
             faucet = Faucet()
