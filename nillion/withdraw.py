@@ -15,7 +15,7 @@ class Withdraw():
 
         contract = self.web3.eth.contract(address=DEPOSIT_CONTRACT, abi=DEPOSIT_CONTRACT_ABI) 
         
-        balance = contract.functions.balanceOf(account.address)
+        balance = contract.functions.balanceOf(account.address).call()
         if balance < 1: 
             logger.warning(f'{account.address}: has no eth staked to nillion')
             return 0
